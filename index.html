@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+        margin-top: 70px;
+    }
+
+    table {
+        margin-top: 30px;
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        background-color: #222831;
+        color: #32e0c4;
+        border: 3px solid #32e0c4;
+    }
+
+    .long {
+        color: #222831;
+        font-weight: bolder;
+        background-color: #32e0c4;
+        font-family: UniSansRegularItalic;
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        border: 1px solid black;
+    }
+
+    .number {
+        color: #222831;
+        font-weight: bolder;
+        font-family: UniSansRegularItalic;
+        background-color: #32e0c4;
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+        border: 1px solid black;
+    }
+
+    .number:hover,
+    .long:hover {
+        box-shadow: 2px 2px 3px 0px teal;
+    }
+
+    .number:active,
+    .long:active {
+        background-color: #222831;
+        color: #32e0c4;
+        border: none;
+        transform: translate(2px, 2px);
+    }
+
+    #text {
+        font-family: UniSansBoldItalic;
+        font-weight: bolder;
+        color: black;
+        font-size: 40px;
+    }
+</style>
+<script>
+    function string(val) {
+        var x = document.getElementById("ans");
+        x.value = x.value + val
+    }
+
+    function solve() {
+        var x = document.getElementById("ans").value;
+        document.getElementById("ans").value = eval(x);
+    }
+
+    function clr() {
+        document.getElementById("ans").value = "";
+    }
+
+    function back() {
+        var ctrlAns = document.getElementById("ans");
+        ctrlAns.value = ctrlAns.value.slice(0, ctrlAns.value.length - 1);
+    }
+</script>
+
+<body>
+    <center>
+        <span id="text">Calculator</span>
+        <table border="0" cellpadding="7px">
+            <tr>
+                <td colspan="3"><input type="text" class="long" id="ans"></td>
+                <td><input type="button" value="Clear" class="number" onclick="clr();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" class="number" onclick="string('1');"></td>
+                <td><input type="button" value="2" class="number" onclick="string('2');"></td>
+                <td><input type="button" value="3" class="number" onclick="string('3');"></td>
+                <td><input type="button" value="+" class="number" onclick="string('+');"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="number" onclick="string('4');"></td>
+                <td><input type="button" value="5" class="number" onclick="string('5');"></td>
+                <td><input type="button" value="6" class="number" onclick="string('6');"></td>
+                <td><input type="button" value="-" class="number" onclick="string('-');"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" class="number" onclick="string('7');"></td>
+                <td><input type="button" value="8" class="number" onclick="string('8');"></td>
+                <td><input type="button" value="9" class="number" onclick="string('9');"></td>
+                <td><input type="button" value="*" class="number" onclick="string('*');"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" class="number" onclick="string('0');"></td>
+                <td><input type="button" value="." class="number" onclick="string('.');"></td>
+                <td><input type="button" value="<-" class="number" onclick="back();"></td>
+                <td><input type="button" value="/" class="number" onclick="string('/');"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="button" value="=" class="long" onclick="solve();"></td>
+                <td><input type="button" value="%" class="number" onclick="string('%');"></td>
+            </tr>
+        </table>
+    </center>
+</body></html>
